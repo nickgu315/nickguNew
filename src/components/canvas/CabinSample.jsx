@@ -1,8 +1,13 @@
 import * as THREE from 'three'
 import { useState, useRef, useMemo, Suspense } from 'react'
 import { useRouter } from 'next/router'
-import { useGLTF, useScroll, ScrollControls, Environment, Merged, Text, MeshReflectorMaterial, Line, useCursor, MeshDistortMaterial } from '@react-three/drei'
+import { useGLTF, useScroll, ScrollControls, Environment, Merged, Text, MeshReflectorMaterial, Line, useCursor, MeshDistortMaterial, softShadows } from '@react-three/drei'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
+
+
+softShadows()
+
+const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1)
 
 
 export default function CabinSample({ route, ...props }) {
@@ -23,30 +28,60 @@ export default function CabinSample({ route, ...props }) {
   })
   const points = useMemo(() => new THREE.EllipseCurve(0, 0, 3, 1.15, 0, 2 * Math.PI, false, 0).getPoints(100), [])
   useCursor(hovered)
+
+  function Sphere({ position = [0, 0, 0], ...props }) {
+    const ref = useRef()
+    const { viewport } = useThree()
+    useFrame(({ mouse }) => {
+      const xCorSetv2 = (mouse.x * viewport.width) / 2
+      const yCorSetv2 = (mouse.y * viewport.height) / 2
+      ref.current.position.set(xCorSetv2, yCorSetv2, 0)
+      //console.log(mesh.current.position.x)
+    })
+    const factor = useMemo(() => 0.5 + Math.random(), [])
+    useFrame((state) => {
+      const t = easeInOutCubic((1 + Math.sin(state.clock.getElapsedTime() * factor)) / 2)
+      ref.current.position.y = position[1] + t * 4
+      ref.current.scale.y = 1 + t * 3
+    })
+    return (
+      <mesh ref={ref} position={position} {...props} castShadow receiveShadow>
+        <sphereBufferGeometry attach="geometry" args={[0.5, 32, 32]} />
+
+        <meshStandardMaterial attach="material" color="lightblue" roughness={0} metalness={0.1} />
+        <MeshDistortMaterial distort={0.6} speed={3} roughness={0.1} color="lightblue" metalness={0.1} />
+      </mesh>
+    )
+  }
+
+  function Spheres({ number = 1 }) {
+    const ref = useRef()
+    const positions = useMemo(() => [...new Array(number)].map(() => [3 - Math.random() * 6, Math.random() * 4, 3 - Math.random() * 6]), [])
+    useFrame((state) => (ref.current.rotation.y = Math.sin(state.clock.getElapsedTime() / 2) * Math.PI))
+    return (
+      <group ref={ref}>
+        {positions.map((pos, index) => (
+          <Sphere key={index} position={pos} />
+        ))}
+      </group>
+    )
+  }
+
+
   return (
     <group ref={mesh} {...props}>
       {/* @ts-ignore */}
 
-      <mesh
-        //onClick={() => router.push(route)}
-        onPointerOver={() => hover(true)}
-        onPointerOut={() => hover(false)}
-        {...props}>
-
-        <sphereGeometry args={[1.2, 100, 100]} />
-        <MeshDistortMaterial roughness={0} color={hovered ? 'hotpink' : '#1fb2f5'} />
+      <mesh receiveShadow castShadow>
+        <meshStandardMaterial attach="material" />
       </mesh>
-
-      <mesh
-        //onClick={() => router.push(route)}
-        onPointerOver={() => hover2(true)}
-        onPointerOut={() => hover2(false)}
-        position={[mesh.current != null ? mesh.current.position.x*5 : 0, mesh.current != null ? mesh.current.position.y*5 : 0, 0.5]}
-        {...props} >
-
-        <sphereGeometry args={[1.6, 100, 100]} />
-        <MeshDistortMaterial distort={1} speed={5} roughness={0.1} color={hovered2 ? 'hotpink' : '#1fb2f5'} />
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
+        <planeBufferGeometry attach="geometry" args={[100, 100]} />
+        <shadowMaterial attach="material" transparent opacity={0.4} />
       </mesh>
+      <Spheres />
+
+
 
 
     </group>
