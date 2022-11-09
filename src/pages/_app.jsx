@@ -6,7 +6,7 @@ import '@/styles/index.css'
 
 const Scene = dynamic(() => import('@/components/canvas/Scene'), { ssr: true })
 
-export default function App({ Component, pageProps = { title: 'Home' } }) {
+export default function App({ Component, pageProps = { title: 'UI/ UX Designer & Fullstack Developer' } }) {
   const ref = useRef()
   return (
     <>
