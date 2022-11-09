@@ -21,5 +21,5 @@ export default function Page(props) {
 Page.canvas = (props) => <CabinSample scale={0.5} route='/' position-y={-1} />
 
 export async function getStaticProps() {
-  return { props: { title: 'Index' } }
+  return { props: { title: 'UI/ UX Designer & Fullstack Developer' } }
 }
