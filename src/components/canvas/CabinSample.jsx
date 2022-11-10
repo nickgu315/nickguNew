@@ -15,6 +15,8 @@ export default function CabinSample({ route, ...props }) {
   const [hovered, hover] = useState(false)
   const [hovered2, hover2] = useState(false)
   const mesh = useRef(null)
+  const [goUp, setGoUp] = useState(true)
+  const [newCycleTime, SetNewCycleTime] = useState(0)
   const [xCorValue, xCorSet] = useState(null)
   const [yCorValue, yCorSet] = useState(null)
   const { viewport } = useThree()
@@ -35,23 +37,36 @@ export default function CabinSample({ route, ...props }) {
     const factor = useMemo(() => 0.5 + Math.random(), [])
     useFrame((state) => {
       const t = easeInOutCubic((1 + Math.sin(state.clock.getElapsedTime() * factor)) / 2)
-      ref.current.position.y = position[1] + t * 4
-      ref.current.scale.y = 1 + t * 3
+      //console.log("time",state.clock.getElapsedTime())
+      if (state.clock.getElapsedTime() - newCycleTime > 30){
+
+        SetNewCycleTime(state.clock.getElapsedTime())
+      }
+      if (state.clock.getElapsedTime() - newCycleTime > 5 && state.clock.getElapsedTime() - newCycleTime < 15){
+        ref.current.position.y = ref.current.position.y + t/6
+
+      } else if (state.clock.getElapsedTime() - newCycleTime > 15 && state.clock.getElapsedTime() - newCycleTime < 30){
+        ref.current.position.y = (ref.current.position.y - t/3)<0 ? 0 : ref.current.position.y - t/3
+      }
+
+
+
+
     })
     return (
       <mesh ref={ref} position={position} {...props} castShadow receiveShadow>
         <sphereBufferGeometry attach="geometry" args={[0.6, 32, 32]} />
 
         <meshStandardMaterial attach="material" color="lightblue" roughness={0} metalness={0.1} />
-        <MeshDistortMaterial distort={0.6} speed={3} roughness={0.1} color="lightblue" metalness={0.1} />
+
       </mesh>
     )
   }
 
   function Spheres({ number = 9 }) {
     const ref = useRef()
-    const positions = useMemo(() => [...new Array(number)].map(() => [3 - Math.random() * 6, Math.random() * 4, 3 - Math.random() * 6]), [])
-    useFrame((state) => (ref.current.rotation.y = Math.sin(state.clock.getElapsedTime() / 2) * Math.PI))
+    const positions = [[0,0,0],[0,0,1.2],[0,0,2.4],[0,0,3.6],[0,0,4.8],[1.2,0,2.4],[2.4,0,0],[2.4,0,1.2],[2.4,0,2.4],[2.4,0,3.6],[2.4,0,4.8],[4.2,0,4.8],[4.2,0,3.6],[4.2,0,1.2], [7.2,0,1.2],[7.2,0,2.4],[7.2,0,0], [7.2,0,4.8]]
+
     return (
       <group ref={ref}>
         {positions.map((pos, index) => (
