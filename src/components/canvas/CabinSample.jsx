@@ -31,13 +31,7 @@ export default function CabinSample({ route, ...props }) {
 
   function Sphere({ position = [0, 0, 0], ...props }) {
     const ref = useRef()
-    const { viewport } = useThree()
-    useFrame(({ mouse }) => {
-      const xCorSetv2 = (mouse.x * viewport.width) / 2
-      const yCorSetv2 = (mouse.y * viewport.height) / 2
-      ref.current.position.set(xCorSetv2, yCorSetv2, 0)
-      //console.log(mesh.current.position.x)
-    })
+
     const factor = useMemo(() => 0.5 + Math.random(), [])
     useFrame((state) => {
       const t = easeInOutCubic((1 + Math.sin(state.clock.getElapsedTime() * factor)) / 2)
@@ -46,7 +40,7 @@ export default function CabinSample({ route, ...props }) {
     })
     return (
       <mesh ref={ref} position={position} {...props} castShadow receiveShadow>
-        <sphereBufferGeometry attach="geometry" args={[0.5, 32, 32]} />
+        <sphereBufferGeometry attach="geometry" args={[0.6, 32, 32]} />
 
         <meshStandardMaterial attach="material" color="lightblue" roughness={0} metalness={0.1} />
         <MeshDistortMaterial distort={0.6} speed={3} roughness={0.1} color="lightblue" metalness={0.1} />
@@ -54,7 +48,7 @@ export default function CabinSample({ route, ...props }) {
     )
   }
 
-  function Spheres({ number = 1 }) {
+  function Spheres({ number = 9 }) {
     const ref = useRef()
     const positions = useMemo(() => [...new Array(number)].map(() => [3 - Math.random() * 6, Math.random() * 4, 3 - Math.random() * 6]), [])
     useFrame((state) => (ref.current.rotation.y = Math.sin(state.clock.getElapsedTime() / 2) * Math.PI))

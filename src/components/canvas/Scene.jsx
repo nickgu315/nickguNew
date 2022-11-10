@@ -21,8 +21,9 @@ export default function Scene({ children, ...props }) {
         shadow-camera-top={10}
         shadow-camera-bottom={-10}
       />
-      <pointLight position={[-10, 0, -20]} color="red" intensity={2.5} />
-      <pointLight position={[0, -10, 0]} intensity={1.5} />
+      <pointLight position={[-10, 0, -20]} color="blue" intensity={3.5} />
+      <pointLight position={[0, -10, 0]} color="yellow" intensity={3.5} />
+      <pointLight position={[10, 0, 20]} color="red" intensity={3.5} />
       {children}
       <Preload all />
       <OrbitControls enableRotate={false} />

@@ -10,8 +10,22 @@ const CabinSample = dynamic(() => import('@/components/canvas/CabinSample'), { s
 // Dom components go here
 export default function Page(props) {
   return (
-    <div>
-      By Nick
+    <div
+      className='absolute w-[80vw] md:w-[50vw] px-10 py-8 text-sm rounded-lg shadow-xl md:text-base top-16 left-1/2 transform -translate-x-1/2'
+      style={{ maxWidth: 'calc(100% - 28px)' }}>
+
+      <div className='tracking-wider text-white'>
+        <span className='text-green-200 text-6xl'>Hello! </span> <span className='text-green-200'>  </span>
+        <br />
+        <span className='text-4xl'>I'm Nick Gu.</span>
+        <br />
+        <span className='text-3xl'>UI/ UX Designer</span>
+        <span className='text-green-200 text-3xl'> &</span>
+        <br />
+        <span className='text-3xl'>Fullstack Developer.</span>
+        <br />
+
+      </div>
     </div>
   )
 }
