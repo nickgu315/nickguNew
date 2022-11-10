@@ -8,7 +8,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber'
 softShadows()
 
 const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1)
-
+const ballsize = 0.4
 
 export default function CabinSample({ route, ...props }) {
   const router = useRouter()
@@ -55,7 +55,7 @@ export default function CabinSample({ route, ...props }) {
     })
     return (
       <mesh ref={ref} position={position} {...props} castShadow receiveShadow>
-        <sphereBufferGeometry attach="geometry" args={[0.6, 32, 32]} />
+        <sphereBufferGeometry attach="geometry" args={[ballsize, 32, 32]} />
 
         <meshStandardMaterial attach="material" color="lightblue" roughness={0} metalness={0.1} />
 
@@ -65,7 +65,14 @@ export default function CabinSample({ route, ...props }) {
 
   function Spheres({ number = 9 }) {
     const ref = useRef()
-    const positions = [[-2.4,0,0],[-2.4,0,1.2],[-2.4,0,2.4],[-2.4,0,3.6],[-2.4,0,4.8],[-1.2,0,2.4],[0,0,0],[0,0,1.2],[0,0,2.4],[0,0,3.6],[0,0,4.8],[1.8,0,4.8],[1.8,0,3.6],[1.8,0,1.2], [4.8,0,1.2], [4.8,0,2.4], [4.8,0,0], [4.8,0,4.8]]
+    const positions = [
+    [-ballsize*4,0,0],[-ballsize*4,0,ballsize*2],[-ballsize*4,0,ballsize*4],[-ballsize*4,0,ballsize*6],[-ballsize*4,0,ballsize*8], [-ballsize*4,0,ballsize*10], [-ballsize*4,0,ballsize*12],
+    [-ballsize*2,0,ballsize*6],[0,0,ballsize*6],[ballsize*2,0,ballsize*6],
+    [ballsize*4,0,0],[ballsize*4,0,ballsize*2],[ballsize*4,0,ballsize*4],[ballsize*4,0,ballsize*6],[ballsize*4,0,ballsize*8], [ballsize*4,0,ballsize*10], [ballsize*4,0,ballsize*12],
+    [ballsize*8,0,ballsize*4],[ballsize*8,0,ballsize*8], [ballsize*8,0,ballsize*10], [ballsize*8,0,ballsize*12],
+    //[ballsize*13,0,0],
+    [ballsize*13,0,ballsize*2],[ballsize*13,0,ballsize*4],[ballsize*13,0,ballsize*6],[ballsize*13,0,ballsize*8], [ballsize*13,0,ballsize*12]
+    ]
 
     return (
       <group ref={ref}>
