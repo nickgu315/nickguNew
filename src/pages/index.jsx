@@ -6,7 +6,6 @@ import Instructions from '@/components/dom/Instructions'
 // If something goes wrong go back to a static import to show the error.
 // https://github.com/pmndrs/react-three-next/issues/49
 const CabinSample = dynamic(() => import('@/components/canvas/CabinSample'), { ssr: false })
-
 // Dom components go here
 export default function Page(props) {
   return (
@@ -15,9 +14,9 @@ export default function Page(props) {
       style={{ maxWidth: 'calc(100% - 28px)' }}>
 
       <div className='tracking-wider text-white'>
-        <span className='text-green-200 text-6xl'>Hello! </span> <span className='text-green-200'>  </span>
+        <span className='text-green-200 text-6xl'>Hello! </span>
         <br />
-        <span className='text-4xl'>I'm Nick Gu.</span>
+        <span className='text-4xl'>I am Nick Gu</span>
         <br />
         <span className='text-3xl'>UI/ UX Designer</span>
         <span className='text-green-200 text-3xl'> &</span>
