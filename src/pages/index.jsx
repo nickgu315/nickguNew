@@ -13,16 +13,16 @@ export default function Page(props) {
       className='absolute w-[80vw] md:w-[50vw] px-10 py-8 text-sm rounded-lg shadow-xl md:text-base top-16 left-1/2 transform -translate-x-1/2'
       style={{ maxWidth: 'calc(100% - 28px)' }}>
 
-      <div className='tracking-wider text-white'>
-        <span className='text-green-200 text-6xl'>Hello! </span>
+      <div className='tracking-wider text-white text-4xl'>
+
+        I&#39;am <span className='text-green-200 text-[36px]'>Nick Gu</span>.
         <br />
-        <span className='text-4xl'>I am Nick Gu</span>
+        <span className='text-3xl'>UI/ UX Designer, </span>
+
         <br />
-        <span className='text-3xl'>UI/ UX Designer</span>
-        <span className='text-green-200 text-3xl'> &</span>
+        <span className='text-3xl'>Fullstack Developer </span>
         <br />
-        <span className='text-3xl'>Fullstack Developer.</span>
-        <br />
+        <span className='text-green-200 text-3xl'> & more. </span>
 
       </div>
     </div>
