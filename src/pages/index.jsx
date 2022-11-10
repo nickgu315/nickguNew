@@ -10,7 +10,7 @@ const CabinSample = dynamic(() => import('@/components/canvas/CabinSample'), { s
 export default function Page(props) {
   return (
     <div
-      className='absolute w-[80vw] md:w-[50vw] px-10 py-8 text-sm rounded-lg shadow-xl md:text-base top-16 left-1/2 transform -translate-x-1/2'
+      className='absolute w-[80vw] md:w-[50vw] px-10 py-8 text-sm rounded-lg shadow-xl md:text-base top-[80px] left-1/2 transform -translate-x-1/2'
       style={{ maxWidth: 'calc(100% - 28px)' }}>
 
       <div className='tracking-wider text-white text-4xl'>
