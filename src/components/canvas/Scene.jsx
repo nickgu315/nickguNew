@@ -26,7 +26,7 @@ export default function Scene({ children, ...props }) {
       <pointLight position={[10, 0, 20]} color="red" intensity={3.5} />
       {children}
       <Preload all />
-      <OrbitControls enableRotate={false} target={[.5, .5, 0]}/>
+      <OrbitControls enableRotate={false} target={[0.5, 0.5, 0]}/>
     </Canvas>
   )
 }
