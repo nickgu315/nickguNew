@@ -10,6 +10,7 @@ softShadows()
 const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1)
 const ballsize = 0.4
 const xOffset = -2
+const yOffset = -4
 const content1 = `Test\nTest`
 
 export default function CabinSample({ route, ...props }) {
@@ -68,12 +69,12 @@ export default function CabinSample({ route, ...props }) {
   function Spheres({ number = 9 }) {
     const ref = useRef()
     const positions = [
-    [-ballsize*4+xOffset,0,0],[-ballsize*4+xOffset,0,ballsize*2],[-ballsize*4+xOffset,0,ballsize*4],[-ballsize*4+xOffset,0,ballsize*6],[-ballsize*4+xOffset,0,ballsize*8], [-ballsize*4+xOffset,0,ballsize*10], [-ballsize*4+xOffset,0,ballsize*12],
-    [-ballsize*2+xOffset,0,ballsize*6],[0+xOffset,0,ballsize*6],[ballsize*2+xOffset,0,ballsize*6],
-    [ballsize*4+xOffset,0,0],[ballsize*4+xOffset,0,ballsize*2],[ballsize*4+xOffset,0,ballsize*4],[ballsize*4+xOffset,0,ballsize*6],[ballsize*4+xOffset,0,ballsize*8], [ballsize*4+xOffset,0,ballsize*10], [ballsize*4+xOffset,0,ballsize*12],
-    [ballsize*8+xOffset,0,ballsize*4],[ballsize*8+xOffset,0,ballsize*8], [ballsize*8+xOffset,0,ballsize*10], [ballsize*8+xOffset,0,ballsize*12],
+    [-ballsize*4+xOffset,0,0+yOffset],[-ballsize*4+xOffset,0,ballsize*2+yOffset],[-ballsize*4+xOffset,0,ballsize*4+yOffset],[-ballsize*4+xOffset,0,ballsize*6+yOffset],[-ballsize*4+xOffset,0,ballsize*8+yOffset], [-ballsize*4+xOffset,0,ballsize*10+yOffset], [-ballsize*4+xOffset,0,ballsize*12+yOffset],
+    [-ballsize*2+xOffset,0,ballsize*6+yOffset],[0+xOffset,0,ballsize*6+yOffset],[ballsize*2+xOffset,0,ballsize*6+yOffset],
+    [ballsize*4+xOffset,0,0+yOffset],[ballsize*4+xOffset,0,ballsize*2+yOffset],[ballsize*4+xOffset,0,ballsize*4+yOffset],[ballsize*4+xOffset,0,ballsize*6+yOffset],[ballsize*4+xOffset,0,ballsize*8+yOffset], [ballsize*4+xOffset,0,ballsize*10+yOffset], [ballsize*4+xOffset,0,ballsize*12+yOffset],
+    [ballsize*8+xOffset,0,ballsize*4+yOffset],[ballsize*8+xOffset,0,ballsize*8+yOffset], [ballsize*8+xOffset,0,ballsize*10+yOffset], [ballsize*8+xOffset,0,ballsize*12+yOffset],
     //[ballsize*13,0,0],
-    [ballsize*13+xOffset,0,ballsize*2],[ballsize*13+xOffset,0,ballsize*4],[ballsize*13+xOffset,0,ballsize*6],[ballsize*13+xOffset,0,ballsize*8], [ballsize*13+xOffset,0,ballsize*12]
+    [ballsize*13+xOffset,0,ballsize*2+yOffset],[ballsize*13+xOffset,0,ballsize*4+yOffset],[ballsize*13+xOffset,0,ballsize*6+yOffset],[ballsize*13+xOffset,0,ballsize*8+yOffset], [ballsize*13+xOffset,0,ballsize*12+yOffset]
     ]
 
     return (
