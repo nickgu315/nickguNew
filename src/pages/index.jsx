@@ -25,19 +25,69 @@ export default function Page(props) {
       }}
     >
       <div
-        className='absolute w-[80vw] md:w-[50vw] px-[20px] py-[15px] text-sm rounded-lg shadow-xl md:text-base top-[60px] left-1/2 transform -translate-x-1/2'
+        className='absolute w-[80vw] md:w-[50vw] px-[20px] py-[15px] text-sm rounded-lg shadow-xl md:text-base top-[60px] md:top-[30px] left-1/2 transform -translate-x-1/2'
         style={{ maxWidth: 'calc(100% - 28px)' }}>
 
-        <div className='tracking-wider text-white text-4xl'>
+        <div className='tracking-wider text-white text-4xl md:text-2xl relative'>
 
-          I&#39;am <span className='text-green-200 text-[36px] font-bold'>Nick Gu</span>.
+            <motion.div initial="hidden" animate="visible"variants={{
+                hidden: {
+                  scale: .8,
+                  opacity: 0
+                },
+                visible: {
+                  scale: 1,
+                  opacity: 1,
+                  transition: {
+                    delay: 4
+                  }
+                },
+              }}
+            >
+              <motion.div whileHover={{
+              position: 'relative',
+              zIndex: 1,
+
+              scale: 1.1,
+              transition: {
+                duration: .3
+              }
+              }}>
+                <a href="https://with-ant-design-ruddy.vercel.app/projects" target="_blank">
+                  <button
+                    className='absolute w-[50px] md:w-[60px] px-[0px] py-[0px] md:px-[2px] md:py-[2px] rounded-2xl md:rounded-2xl shadow-xl top-[125px] md:top-[70px] right-[0px] md:right-[20px] bg-gradient-to-r from-green-200 text-[20px] md:text-[20px] text-indigo-500 font-bold'
+                    >
+                    📔
+                  </button>
+                </a>
+              </motion.div>
+              <motion.div whileHover={{
+              position: 'relative',
+              zIndex: 1,
+
+              scale: 1.1,
+              transition: {
+                duration: .3
+              }
+              }}>
+                <a href="https://www.linkedin.com/in/nickgulikhang/" target="_blank">
+                <button
+                  className='absolute w-[50px] md:w-[60px] px-[0px] py-[0px] md:px-[2px] md:py-[2px] rounded-2xl md:rounded-2xl shadow-xl top-[125px] md:top-[20px] right-[60px] md:right-[20px] bg-gradient-to-r from-green-200 text-[20px] md:text-[20px] text-indigo-500 font-bold'
+                  >
+                  📃
+                </button>
+                </a>
+              </motion.div>
+            </motion.div>
+
+          I&#39;m <span className='text-green-200 text-[36px] md:text-[26px] font-bold'>Nick Gu</span>.
           <br />
-          <span className='text-3xl'>UI/ UX Designer, </span>
+          <span className='text-3xl md:text-xl'>UI/ UX Designer, </span>
 
           <br />
-          <span className='text-3xl'>Fullstack Developer </span>
+          <span className='text-3xl md:text-xl'>Fullstack Developer </span>
           <br />
-          <span className='text-green-200 text-3xl'> & more. </span>
+          <span className='text-green-200 text-3xl md:text-xl'> & more</span>.
 
         </div>
       </div>
