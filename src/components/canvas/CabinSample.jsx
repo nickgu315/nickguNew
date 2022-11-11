@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { useState, useRef, useMemo, Suspense } from 'react'
 import { useRouter } from 'next/router'
-import { useGLTF, useScroll, ScrollControls, Environment, Merged, Text, MeshReflectorMaterial, Line, useCursor, MeshDistortMaterial, softShadows } from '@react-three/drei'
+import { Text3D, Center, useGLTF, useScroll, ScrollControls, Environment, Merged, Text, MeshReflectorMaterial, Line, useCursor, MeshDistortMaterial, softShadows } from '@react-three/drei'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 
 
@@ -10,6 +10,7 @@ softShadows()
 const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1)
 const ballsize = 0.4
 const xOffset = -2
+const content1 = `Test\nTest`
 
 export default function CabinSample({ route, ...props }) {
   const router = useRouter()
@@ -108,6 +109,22 @@ export default function CabinSample({ route, ...props }) {
 
 
 /*
+<Center rotation={[-1.5, 0, 0]} position={[-ballsize*4+xOffset, 0, 8]}>
+  <Text3D
+    curveSegments={32}
+    bevelEnabled
+    bevelSize={0.04}
+    bevelThickness={0.1}
+    height={0.5}
+    lineHeight={0.5}
+    letterSpacing={-0.06}
+    size={1.5}
+    font="/Inter_Bold.json">
+    {content1}
+    <meshNormalMaterial />
+  </Text3D>
+</Center>
+
 function Train() {
   const ref = useRef()
   const scroll = useScroll()
