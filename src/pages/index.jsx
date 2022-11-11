@@ -19,7 +19,7 @@ export default function Page(props) {
           scale: 1,
           opacity: 1,
           transition: {
-            delay: 2
+            delay: 1.75
           }
         },
       }}
@@ -30,7 +30,7 @@ export default function Page(props) {
 
         <div className='tracking-wider text-white text-4xl'>
 
-          I&#39;am <span className='text-green-200 text-[36px]'>Nick Gu</span>.
+          I&#39;am <span className='text-green-200 text-[36px] font-bold'>Nick Gu</span>.
           <br />
           <span className='text-3xl'>UI/ UX Designer, </span>
 
