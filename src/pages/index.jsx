@@ -19,7 +19,7 @@ export default function Page(props) {
           scale: 1,
           opacity: 1,
           transition: {
-            delay: 1.75
+            delay: 2.25
           }
         },
       }}

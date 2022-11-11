@@ -45,7 +45,7 @@ export default function CabinSample({ route, ...props }) {
 
         SetNewCycleTime(state.clock.getElapsedTime())
       }
-      if (state.clock.getElapsedTime() - newCycleTime > 2.5 && state.clock.getElapsedTime() - newCycleTime < 12){
+      if (state.clock.getElapsedTime() - newCycleTime > 2 && state.clock.getElapsedTime() - newCycleTime < 12){
         ref.current.position.y = ref.current.position.y + t/6
 
       } else if (state.clock.getElapsedTime() - newCycleTime > 12 && state.clock.getElapsedTime() - newCycleTime < 22){
