@@ -48,12 +48,12 @@ export default function Page(props) {
               position: 'relative',
               zIndex: 1,
 
-              scale: 1.1,
+              scale: 1.025,
               transition: {
                 duration: .3
               }
               }}>
-                <a href="https://nickgu.vercel.app/projects" target="_blank" rel="noreferrer">
+                <a href="https://nickgu.vercel.app/projects">
                   <button
                     className='absolute w-[50px] md:w-[60px] px-[0px] py-[0px] md:px-[2px] md:py-[2px] rounded-2xl md:rounded-2xl shadow-xl top-[125px] md:top-[70px] right-[0px] md:right-[20px] bg-gradient-to-r from-green-200 text-[20px] md:text-[20px] text-indigo-500 font-bold'
                     >
@@ -65,7 +65,7 @@ export default function Page(props) {
               position: 'relative',
               zIndex: 1,
 
-              scale: 1.1,
+              scale: 1.025,
               transition: {
                 duration: .3
               }
