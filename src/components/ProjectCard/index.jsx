@@ -33,15 +33,7 @@ export default function ProjectCard({disableHi, title, description, imageLink, w
       </div>
       <div className='w-[88vw] lg:w-[21vw] h-auto px-[0px] pt-[10px] lg:pt-[0px] pb-[20px]'>
 
-        <button className='w-[88vw] lg:w-[21vw] h-auto lg:h-[21vw] flex flex-col items-center'
-          onClick={() => {
-          disableHi(websiteLink)
-          if (websiteLink =='images'){
-            projectImageLinks(imageLinks)
-          }
-        }}>
-          <img className='w-[82vw] lg:w-[21vw] h-auto rounded-lg object-contain shadow-2xl' src={imageLink} />
-        </button>
+        test
 
       </div>
 

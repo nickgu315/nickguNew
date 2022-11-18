@@ -29,3 +29,19 @@
   disableHi: disableHi,
   projectImageLinks: setProjectImageLinks,
 }
+
+
+{projectImageLinks.map((card, index) => (
+      <img className='w-[82vw] lg:w-[42vw] h-[82vw] lg:h-[42vw] rounded-lg object-contain shadow-2xl' key={index} src={card} />
+))}
+
+
+<button className='w-[88vw] lg:w-[21vw] h-auto lg:h-[21vw] flex flex-col items-center'
+  onClick={() => {
+  disableHi(websiteLink)
+  if (websiteLink =='images'){
+    projectImageLinks(imageLinks)
+  }
+  }}>
+  <img className='w-[82vw] lg:w-[21vw] h-auto rounded-lg object-contain shadow-2xl' src={imageLink} />
+</button>

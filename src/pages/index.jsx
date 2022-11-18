@@ -383,12 +383,9 @@ export default function Page(props) {
               </div>
                 <div className="grid grid-cols-1 gap-[1.7vw] lg:grid-cols-2 lg:px-[2vw] h-auto lg:h-auto pb-[1vw] pt-[15px]">
 
-                {cardInfo.map((cardInfo0, index) => (
-                    <ProjectCard key={index} {...cardInfo0}/>
-
+                {cardInfo.map((props, index) => (
+                    <ProjectCard key={index} {...props}/>
                 ))}
-
-
 
                 </div>
               </div>
@@ -405,9 +402,7 @@ export default function Page(props) {
                   :
                   <div className='w-[90vw] lg:w-[50vw] h-full lg:h-full flex flex-row items-start mb-[35px] pb-[35px]'>
                   <div className='w-[90vw] lg:w-[50vw] h-full lg:h-full flex flex-col items-center content-center pt-[40px] grid-cols-1 gap-[3vw]  lg:gap-[3.5vw]'>
-                      {projectImageLinks.map((card, index) => (
-                            <img className='w-[82vw] lg:w-[42vw] h-[82vw] lg:h-[42vw] rounded-lg object-contain shadow-2xl' key={index} src={card} />
-                      ))}
+                      test
                   </div>
                   </div>
                 }
