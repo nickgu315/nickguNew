@@ -359,6 +359,7 @@ export default function Page(props) {
                 },
               }}
             >
+<<<<<<< HEAD
             <div className="absolute bottom-[0px] h-auto">
               {!routedWebsiteLink ?
               <MenuButton onClick={toggleDropdown} isOpen={isOpen}/>
@@ -413,6 +414,32 @@ export default function Page(props) {
                 }
                 </div>
 
+=======
+              <motion.div whileHover={{
+              position: 'relative',
+              zIndex: 1,
+
+              scale: 1.025,
+              transition: {
+                duration: .3
+              }
+              }}>
+                <a href="https://nickgu.vercel.app/projects">
+                  <button
+                    className='absolute w-[50px] md:w-[60px] px-[0px] py-[0px] md:px-[2px] md:py-[2px] rounded-2xl md:rounded-2xl shadow-xl top-[125px] md:top-[70px] right-[0px] md:right-[20px] bg-gradient-to-r from-green-200 text-[20px] md:text-[20px] text-indigo-500 font-bold'
+                    >
+                    📔
+                  </button>
+                </a>
+              </motion.div>
+              <motion.div whileHover={{
+              position: 'relative',
+              zIndex: 1,
+
+              scale: 1.025,
+              transition: {
+                duration: .3
+>>>>>>> a1407799f53e869667dd27ce26ae7be859498e99
               }
 
 
