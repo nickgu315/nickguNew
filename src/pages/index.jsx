@@ -3,7 +3,7 @@ import Instructions from '@/components/dom/Instructions'
 import { motion, useCycle, AnimatePresence } from 'framer-motion';
 import { useState, useRef, useMemo, Suspense, useEffect } from 'react'
 import Modal from "../components/Modal";
-import ProjectCard from "../components/ProjectCard";
+import ProjectCard from "../components/canvas/ProjectCard";
 
 
 // Dynamic import is used to prevent a payload when the website starts, that includes threejs, r3f etc..
