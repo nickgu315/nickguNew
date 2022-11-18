@@ -45,3 +45,7 @@
   }}>
   <img className='w-[82vw] lg:w-[21vw] h-auto rounded-lg object-contain shadow-2xl' src={imageLink} />
 </button>
+
+{cardInfo.map((props, index) => (
+    <ProjectCard key={index} {...props}/>
+))}

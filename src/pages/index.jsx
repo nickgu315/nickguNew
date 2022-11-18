@@ -383,9 +383,7 @@ export default function Page(props) {
               </div>
                 <div className="grid grid-cols-1 gap-[1.7vw] lg:grid-cols-2 lg:px-[2vw] h-auto lg:h-auto pb-[1vw] pt-[15px]">
 
-                {cardInfo.map((props, index) => (
-                    <ProjectCard key={index} {...props}/>
-                ))}
+                test2
 
                 </div>
               </div>
