@@ -17,14 +17,12 @@ export default function ProjectCard({disableHi, title, description, imageLink, w
       zIndex: 1,
       scale: 1.03,
       transition: {
-        duration: .15
+        duration: 0.15
       }
       }}
-
-
     >
     <div className='w-[90vw] lg:w-[22vw] h-auto  md:h-auto lg:h-auto xl:h-auto px-[10px] flex flex-col items-center'>
-      <div className='w-[84vw] lg:w-[22vw] h-[14vw] sm:h-[5vw] md:h-[5vw] lg:h-[5.5vw] xl:h-[5vw] 2xl:h-[2.5vw] px-[10px] lg:px-[20px] lg:px-[10px] pt-[0px] flex flex-col items-start mb-[0.25em] sm:mb-[0.5em] lg:mb-[0.5em]'>
+      <div className='w-[84vw] lg:w-[22vw] h-[14vw] sm:h-[5vw] md:h-[5vw] lg:h-[5.5vw] xl:h-[5vw] 2xl:h-[2.5vw] px-[10px] lg:px-[20px] pt-[0px] flex flex-col items-start mb-[0.25em] sm:mb-[0.5em] lg:mb-[0.5em]'>
         <h3 className='text-[16px] lg:text-[1em]'>
         {title}
         </h3>
