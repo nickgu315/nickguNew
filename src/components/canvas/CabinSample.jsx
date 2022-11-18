@@ -25,12 +25,13 @@ export default function CabinSample({ route, ...props }) {
   const { viewport } = useThree()
   // viewport = canvas in 3d units (meters)
 
+  /*
   useFrame(({ mouse }) => {
      const xCorSetv2 = (mouse.x * viewport.width) / 2
      const yCorSetv2 = (mouse.y * viewport.height) / 2
      mesh.current.position.set(xCorSetv2, yCorSetv2, 0)
      //console.log(mesh.current.position.x)
-  })
+  })*/
   const points = useMemo(() => new THREE.EllipseCurve(0, 0, 3, 1.15, 0, 2 * Math.PI, false, 0).getPoints(100), [])
   useCursor(hovered)
 
@@ -59,7 +60,7 @@ export default function CabinSample({ route, ...props }) {
     })
     return (
       <mesh ref={ref} position={position} {...props} castShadow receiveShadow>
-        <sphereBufferGeometry attach="geometry" args={[ballsize, 32, 32]} />
+        <sphereGeometry attach="geometry" args={[ballsize, 32, 32]} />
 
         <meshStandardMaterial attach="material" color="lightblue" roughness={0} metalness={0.1} />
 
@@ -96,7 +97,7 @@ export default function CabinSample({ route, ...props }) {
         <meshStandardMaterial attach="material" />
       </mesh>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
-        <planeBufferGeometry attach="geometry" args={[100, 100]} />
+        <planeGeometry attach="geometry" args={[100, 100]} />
         <shadowMaterial attach="material" transparent opacity={0.4} />
       </mesh>
       <Spheres />

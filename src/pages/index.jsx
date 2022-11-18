@@ -270,7 +270,7 @@ export default function Page(props) {
 
 
   const disableHi = (websiteLink) => {
-    console.log('to link:', websiteLink)
+    //console.log('to link:', websiteLink)
     setRoutedWebsiteLink(websiteLink)
     setDisableHiValue(!disableHiValue)
   }
@@ -317,6 +317,20 @@ export default function Page(props) {
                                                         "https://res.cloudinary.com/nickgu-com/image/upload/v1629916273/Movabar_04_cocktail_03_42088777a6.jpg",
                                                         "https://res.cloudinary.com/nickgu-com/image/upload/v1629916275/Movabar_04_folded_fb8fe3f0c4.jpg",
                                                         "https://res.cloudinary.com/nickgu-com/image/upload/v1629916277/Movabar_02_main_b17882ba54.jpg",
+                                                        ],
+                                            disableHi: disableHi,
+                                            projectImageLinks: setProjectImageLinks,
+                                          },
+                                          {title: "Filture",
+                                            description: "Web App UI/UX Design, Frontend Development, Graphic Design",
+                                            imageLink: "https://res.cloudinary.com/nickgu-com/image/upload/v1629951368/Filture_furniture_app_sq_01_5ca0f712b7.jpg",
+                                            websiteLink: "images", //"images", //
+                                            imageLinks: ["https://res.cloudinary.com/nickgu-com/image/upload/v1629951459/Filture_furniture_app_sq_02_729b18b6f3.jpg",
+                                                        "https://res.cloudinary.com/nickgu-com/image/upload/v1629951202/Filture_furniture_web_sq_01_d69bf214ca.jpg",
+                                                        "https://res.cloudinary.com/nickgu-com/image/upload/v1629951779/Filture_furniture_web_sq_02_e99745f549.jpg",
+                                                        "https://res.cloudinary.com/nickgu-com/image/upload/v1629951814/Filture_rendering_sq_01_066bebb718.jpg",
+                                                        "https://res.cloudinary.com/nickgu-com/image/upload/v1629951813/Filture_rendering_sq_02_d08a14aee0.jpg",
+                                                        "https://res.cloudinary.com/nickgu-com/image/upload/v1629952181/Filture_logo_sq_01_7725160468.jpg",
                                                         ],
                                             disableHi: disableHi,
                                             projectImageLinks: setProjectImageLinks,
