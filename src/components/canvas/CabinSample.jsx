@@ -41,14 +41,15 @@ export default function CabinSample({ route, ...props }) {
     useFrame((state) => {
       const t = easeInOutCubic((1 + Math.sin(state.clock.getElapsedTime() * factor)) / 2)
       //console.log("time",state.clock.getElapsedTime())
+      /*
       if (state.clock.getElapsedTime() - newCycleTime > 22){
 
         SetNewCycleTime(state.clock.getElapsedTime())
-      }
-      if (state.clock.getElapsedTime() - newCycleTime > 2 && state.clock.getElapsedTime() - newCycleTime < 12){
+      }*/
+      if (state.clock.getElapsedTime()% 30 < 15 && state.clock.getElapsedTime()% 20 > 2){
         ref.current.position.y = ref.current.position.y + t/6
 
-      } else if (state.clock.getElapsedTime() - newCycleTime > 12 && state.clock.getElapsedTime() - newCycleTime < 22){
+      } else if (state.clock.getElapsedTime()% 30 > 15){
         ref.current.position.y = (ref.current.position.y - t/3)<0 ? 0 : ref.current.position.y - t/3
       }
 

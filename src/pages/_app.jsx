@@ -11,8 +11,9 @@ export default function App({ Component, pageProps = { title: 'UI/ UX Designer &
   return (
     <>
       <Header title={pageProps.title} />
+
       <Layout ref={ref}>
-        <Component {...pageProps} />
+
         {/* The canvas can either be in front of the dom or behind. If it is in front it can overlay contents.
          * Setting the event source to a shared parent allows both the dom and the canvas to receive events.
          * Since the event source is now shared, the canvas would block events, we prevent that with pointerEvents: none. */}
@@ -21,6 +22,7 @@ export default function App({ Component, pageProps = { title: 'UI/ UX Designer &
             {Component.canvas(pageProps)}
           </Scene>
         )}
+        <Component {...pageProps} />
       </Layout>
     </>
   )

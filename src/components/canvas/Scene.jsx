@@ -5,7 +5,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber"
 export default function Scene({ children, ...props }) {
   // Everything defined in here will persist between route changes, only children are swapped
   return (
-    <Canvas shadows camera={{ position: [0, 12, 0], fov: 60 }} {...props}>
+    <Canvas shadows camera={{ position: [0, 12, 0], fov: 60, target: [0, 0, 0] }} {...props}>
 
       <fog attach="fog" args={["white", 0, 40]} />
       <ambientLight intensity={0.4} />
@@ -26,7 +26,7 @@ export default function Scene({ children, ...props }) {
       <pointLight position={[10, 0, 20]} color="red" intensity={3.5} />
       {children}
       <Preload all />
-      <OrbitControls enableRotate={false} target={[0, 0, 0]}/>
+
     </Canvas>
   )
 }
