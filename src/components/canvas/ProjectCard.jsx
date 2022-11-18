@@ -10,7 +10,7 @@ export default function ProjectCard({disableHi, title, description, imageLink, w
 
 
   return (
-    <motion.div initial="hidden" animate="visible"
+    <motion.div  animate="visible"
 
       initial={false}
       whileHover={{
