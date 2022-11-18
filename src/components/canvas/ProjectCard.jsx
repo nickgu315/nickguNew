@@ -31,7 +31,7 @@ export default function ProjectCard({disableHi, title, description, imageLink, w
         {description}
         </p>
       </div>
-      <div className='w-[88vw] lg:w-[21vw] h-auto px-[0px] pt-[10px] lg:pt-[0px] pb-[20px]'>
+      <div className='w-[88vw] lg:w-[21vw] h-auto px-[0px] pt-[20px] lg:pt-[0px] pb-[20px]'>
 
         <button className='w-[88vw] lg:w-[21vw] h-auto lg:h-[21vw] flex flex-col items-center'
           onClick={() => {
