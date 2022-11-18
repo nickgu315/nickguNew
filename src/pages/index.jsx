@@ -405,9 +405,7 @@ export default function Page(props) {
                   :
                   <div className='w-[90vw] lg:w-[50vw] h-full lg:h-full flex flex-row items-start mb-[35px] pb-[35px]'>
                   <div className='w-[90vw] lg:w-[50vw] h-full lg:h-full flex flex-col items-center content-center pt-[40px] grid-cols-1 gap-[3vw]  lg:gap-[3.5vw]'>
-                    
-
-
+                      test
                   </div>
                   </div>
                 }
