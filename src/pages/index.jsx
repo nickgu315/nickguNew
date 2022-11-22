@@ -603,7 +603,7 @@ export default function Page(props) {
                           <br/>
                           Achieved ARR ~3million in 2018 as a D2C brand
                         </p>
-                        <a className='pl-[12px] text-md lg:text-xl text-blue-400 ' target="_blank" href="https://eone-time.com">eone-time.com</a>
+                        <a className='pl-[12px] text-md lg:text-xl text-blue-400 ' target="_blank" rel="noreferrer" href="https://eone-time.com">eone-time.com</a>
 
                       </div>
                       </div>
