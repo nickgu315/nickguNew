@@ -38,12 +38,13 @@ const Path = (props) => (
   position: absolute;
 }*/
 
-const MenuButton = ({ onClick, isOpen, isOnOutsideSite }) => {
+
+const ResumeButton = ({ onClick, isOpen3, isOnOutsideSite }) => {
   return (
     <motion.button
       className="border-[2px] rounded-full w-[2.5rem] lg:w-[3.5rem] h-[2.5rem] lg:h-[3.5rem] bg-gradient-to-r from-green-200 text-center place-content-center"
       onClick={onClick}
-      animate={isOpen ? "open" : "closed"}
+      animate={isOpen3 ? "open" : "closed"}
       initial={false}
       whileHover={{
       zIndex: 1,
@@ -54,7 +55,7 @@ const MenuButton = ({ onClick, isOpen, isOnOutsideSite }) => {
       }}
     >
 
-      {isOpen ?
+      {isOpen3 ?
       <div className='place-content-center items-center flex flex-row'>
       <motion.div>
 
@@ -110,6 +111,48 @@ const MenuButton = ({ onClick, isOpen, isOnOutsideSite }) => {
       <div className='place-content-center items-center flex flex-row text-xl lg:text-3xl'>
       <motion.div>
 
+          📃
+
+
+      </motion.div>
+
+      </div>
+
+
+      }
+
+
+    </motion.button>
+  );
+};
+
+
+
+
+
+const MenuButton = ({ onClick, isOpen, isOnOutsideSite }) => {
+  return (
+    <motion.button
+      className="border-[2px] rounded-full w-[2.5rem] lg:w-[3.5rem] h-[2.5rem] lg:h-[3.5rem] bg-gradient-to-r from-green-200 text-center place-content-center"
+      onClick={onClick}
+      animate={isOpen ? "open" : "closed"}
+      initial={false}
+      whileHover={{
+      zIndex: 1,
+      scale: 1.25,
+      transition: {
+        duration: .25
+      }
+      }}
+    >
+
+      {!isOpen &&
+
+
+
+      <div className='place-content-center items-center flex flex-row text-xl lg:text-3xl'>
+      <motion.div>
+
           📔
 
 
@@ -130,7 +173,7 @@ const BackButton = ({ onClick, isOpen2, disableHi }) => {
   return (
     <motion.button
       className="border-[2px] rounded-full w-[2.5rem] lg:w-[3.5rem] h-[2.5rem] lg:h-[3.5rem] bg-gradient-to-r from-green-200 text-center place-content-center"
-      onClick={disableHi}
+      onClick={onClick}
       animate={isOpen2 ? "open" : "closed"}
       initial={false}
       whileHover={{
@@ -198,6 +241,78 @@ const BackButton = ({ onClick, isOpen2, disableHi }) => {
   );
 };
 
+const BackButton2 = ({ onClick, isOpen2, disableHi }) => {
+  return (
+    <motion.button
+      className="border-[2px] rounded-full w-[2.5rem] lg:w-[3.5rem] h-[2.5rem] lg:h-[3.5rem] bg-gradient-to-r from-green-200 text-center place-content-center"
+      onClick={disableHi}
+      animate={isOpen2 ? "open" : "closed"}
+      initial={false}
+      whileHover={{
+      zIndex: 1,
+      scale: 1.25,
+      transition: {
+        duration: .25
+      }
+      }}
+    >
+
+      {isOpen2 ?
+        <div className='place-content-center items-center flex flex-row'>
+          <motion.div>
+
+            <svg
+              width="23"
+              height="23"
+              style={{ margin: "4px 0 0 2px" }}
+              viewBox="0 0 23 23"
+            >
+              <Path
+                variants={{
+                  closed: { d: "M 2 2.5 L 20 2.5" },
+                  open: { d: "M 3 16.5 L 17 2.5" }
+                }}
+              />
+              <Path
+                d="M 2 9.423 L 20 9.423"
+                variants={{
+                  closed: { opacity: 1 },
+                  open: { opacity: 0 }
+                }}
+                transition={{ duration: 0.1 }}
+              />
+              <Path
+                variants={{
+                  closed: { d: "M 2 16.346 L 20 16.346" },
+                  open: { d: "M 3 2.5 L 17 16.346" }
+                }}
+              />
+            </svg>
+
+
+          </motion.div>
+
+        </div>
+        :
+        <div className='place-content-center items-center flex flex-row text-xl lg:text-3xl'>
+          <motion.div>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path fill="#fff" d="M22 13.5a1.5 1.5 0 0 0 0-3v3ZM.94 10.94a1.5 1.5 0 0 0 0 2.12l9.545 9.547a1.5 1.5 0 1 0 2.122-2.122L4.12 12l8.486-8.485a1.5 1.5 0 1 0-2.122-2.122L.94 10.94ZM22 10.5H2v3h20v-3Z"/>
+          </svg>
+
+          </motion.div>
+
+        </div>
+
+
+      }
+
+
+    </motion.button>
+  );
+};
+
 
 
 const leftMenu = [
@@ -254,6 +369,7 @@ const slideHorizontalAnimation = {
 export default function Page(props) {
   const [isOpen, toggleDropdown] = useCycle(false, true);
   const [isOpen2, toggleDropdown2] = useCycle(false, true);
+  const [isOpen3, toggleDropdown3] = useCycle(false, true);
   const [isLeftMenu, toggleMenu] = useCycle(true, false);
   const leftMenuHeight = (leftMenu.length + 1) * 65;
   const rightMenuHeight = (rightMenu.length + 1) * 65;
@@ -338,91 +454,88 @@ export default function Page(props) {
                                           ]);
 
   return (
-    <div className='pb-[30px] mb-[30px] h-auto'>
-    <motion.div initial="hidden" animate="visible"variants={{
-        hidden: {
-          scale: .8,
-          opacity: 0
-        },
-        visible: {
-          scale: 1,
-          opacity: 1,
-          transition: {
-            delay: 2.25
-          }
-        },
-      }}
-    >
-      <div
-        className='absolute w-[90vw] lg:w-[50vw] px-[20px] py-[15px] text-sm rounded-2xl shadow-xl bg-white bg-opacity-5 lg:text-base top-[60px] lg:top-[30px] left-1/2 transform -translate-x-1/2'
-        style={{ maxWidth: 'calc(100% - 28px)' }}>
-
-        <div className='tracking-wider text-white text-4xl lg:text-2xl relative'>
-
-            <motion.div initial="hidden" animate="visible" variants={{
-                hidden: {
-                  scale: .8,
-                  opacity: 0
-                },
-                visible: {
-                  scale: 1,
-                  opacity: 1,
-                  transition: {
-                    delay: 2
-                  }
-                },
-              }}
-            >
-            <div className="absolute bottom-[0px] h-auto">
-              {!routedWebsiteLink ?
+    <div>
+      <div className="absolute w-full top-0 h-auto py-[20px] flex flex-col items-center mt-[50px]">
+        <motion.div
+          className="absolute w-[90vw] md:w-[70vw] rounded-2xl shadow-xl bg-black bg-opacity-30 top-0 h-auto py-[20px]"
+          initial="close"
+          animate={isOpen || isOpen3 ? "close" : "open"}
+          variants={slideVerticalAnimation}
+        >
+            {!isOpen && !isOpen3 &&
+            <div className='absolute left-[20px] bottom-[20px] flex flex-col items-center gap-2'>
+              <ResumeButton onClick={toggleDropdown3} isOpen3={isOpen3}/>
               <MenuButton onClick={toggleDropdown} isOpen={isOpen}/>
-              :
-              <BackButton onClick={toggleDropdown2} isOpen={isOpen} {...{disableHi: setNoLink}}/>
-              }
+            </div>
+            }
+          <div className='relative left-[80px] lg:left-[100px] text-2xl lg:text-[30px]'>
+
+            I&#39;m <span className='text-green-200 text-[34px] lg:text-[34px] font-bold '>Nick Gu</span>.
+            <br />
+            <span className='text-2xl lg:text-[30px]'>UI/ UX Designer, </span>
+
+            <br />
+            <span className='text-2xl lg:text-[30px]'>Fullstack Developer </span>
+            <br />
+            <span className='text-green-200 text-2xl lg:text-[30px]'> & more</span>.
+          </div>
+        </motion.div>
+      </div>
+
+
+
+
+
+
+            <div className="absolute w-full top-0 h-auto pt-[0px] md:py-[20px] flex flex-col items-center mt-[0px] md:mt-[50px]">
+
               <motion.div
-                className="absolute w-[90vw] lg:w-[50vw] rounded-2xl shadow-xl top-[5.5rem] lg:top-[5.5rem] bg-black bg-opacity-30 left-[-20px]"
-
-                style={{ height: 'auto'}}
-
+                className="absolute w-[90vw] md:w-[70vw] rounded-2xl top-0 h-auto py-[20px]"
                 initial="close"
                 animate={isOpen ? "open" : "close"}
                 variants={slideVerticalAnimation}
               >
 
               {!disableHiValue || routedWebsiteLink==null ?
-              <div className="flex flex-col items-center">
-              <div className='flex flex-row items-center w-full text-left px-[2vw] lg:px-[2vw] text-[24px] lg:test-[28px] py-[2vw] text-gray-400'>
+              <div className="flex flex-col items-center relative">
+                <div>
+                  <div className='absolute left-[5px] md:left-[20px] top-[0px] md:top-[20px]'>
+                    <BackButton onClick={toggleDropdown} isOpen={isOpen} {...{disableHi: setNoLink}}/>
+                  </div>
 
-              Work Showcase
-              </div>
-                <div className="grid grid-cols-1 gap-[1.7vw] lg:grid-cols-2 lg:px-[2vw] h-auto lg:h-auto pb-[1vw] pt-[15px]">
+                  <div className="grid grid-cols-1 gap-[1.7vw] lg:grid-cols-2 lg:px-[2vw] h-auto lg:h-auto pb-[1vw] pt-[60px] md:pt-[0px]">
 
-                {cardInfo.map((props, index) => (
-                    <ProjectCard key={index} {...props}/>
+                  {cardInfo.map((props, index) => (
+                      <ProjectCard key={index} {...props}/>
 
-                ))}
+                  ))}
 
-
-
+                  </div>
                 </div>
               </div>
               :
-                <div>
+                <div className="flex flex-col items-center relative">
                 {routedWebsiteLink!=null && routedWebsiteLink!="images" ?
 
-                  <div className='w-[90vw] lg:w-[50vw] h-full lg:h-full flex flex-row items-start overflow-y-auto'>
-                  <object type="text/html" data={routedWebsiteLink}
-                          className='w-[90vw] lg:w-[50vw] h-[80vh] lg:h-[80vh]'
-                          >
-                  </object>
+                  <div>
+                    <div className='absolute left-[5px] md:left-[20px] top-[0px] md:top-[20px]'>
+                      <BackButton2 onClick={toggleDropdown2} isOpen={isOpen2} {...{disableHi: setNoLink}}/>
+                    </div>
+                    <object type="text/html" data={routedWebsiteLink}
+                            className='w-[90vw] lg:w-[50vw] h-[88vh] lg:h-[95vh] pt-[60px] md:pt-[0px]'
+                            >
+                    </object>
                   </div>
                   :
-                  <div className='w-[90vw] lg:w-[50vw] h-full lg:h-full flex flex-row items-start mb-[35px] pb-[35px]'>
-                  <div className='w-[90vw] lg:w-[50vw] h-full lg:h-full flex flex-col items-center content-center pt-[40px] grid-cols-1 gap-[3vw]  lg:gap-[3.5vw]'>
-                    {projectImageLinks.map((card, index) => (
-                          <img className='w-[82vw] lg:w-[42vw] h-[82vw] lg:h-[42vw] rounded-lg object-contain shadow-2xl' key={index} src={card} />
-                    ))}
-                  </div>
+                  <div className='w-[90vw] lg:w-[50vw] h-full lg:h-full flex flex-col items-start overflow-y-auto'>
+                    <div className='absolute left-[5px] md:left-[20px] top-[0px] md:top-[20px]'>
+                      <BackButton2 onClick={toggleDropdown2} isOpen={isOpen2} {...{disableHi: setNoLink}}/>
+                    </div>
+                    <div className='w-[90vw] lg:w-[50vw] h-full lg:h-full flex flex-col items-center content-center pt-[60px] md:pt-[0px] grid-cols-1 gap-[3vw]  lg:gap-[3.5vw]'>
+                      {projectImageLinks.map((card, index) => (
+                            <img className='w-[82vw] lg:w-[42vw] h-[82vw] lg:h-[42vw] rounded-lg object-contain shadow-2xl' key={index} src={card} />
+                      ))}
+                    </div>
                   </div>
                 }
                 </div>
@@ -433,26 +546,115 @@ export default function Page(props) {
               </motion.div>
             </div>
 
-            </motion.div>
 
-          <div>
-            <div className='relative left-[60px] lg:left-[100px] text-2xl lg:text-[26px]'>
-              I&#39;m <span className='text-green-200 text-[34px] lg:text-[30px] font-bold'>Nick Gu</span>.
-              <br />
-              <span className='text-2xl lg:text-[26px]'>UI/ UX Designer, </span>
 
-              <br />
-              <span className='text-2xl lg:text-[26px]'>Fullstack Developer </span>
-              <br />
-              <span className='text-green-200 text-2xl lg:text-[26px]'> & more</span>.
+            <div className="absolute w-full top-0 h-auto pt-[0px] md:py-[20px] flex flex-col items-center mt-[0px] md:mt-[50px]">
+
+              <motion.div
+                className="absolute w-[90vw] md:w-[70vw] rounded-2xl top-0 h-auto py-[20px]"
+                initial="close"
+                animate={isOpen3 ? "open" : "close"}
+                variants={slideVerticalAnimation}
+              >
+
+
+              <div className="flex flex-col items-center relative">
+                <div>
+                  <div className='absolute left-[5px] md:left-[20px] top-[0px] md:top-[20px]'>
+                    <BackButton onClick={toggleDropdown3} isOpen={isOpen3} {...{disableHi: setNoLink}}/>
+                  </div>
+
+                  <div className='w-[90vw] lg:w-[50vw] flex flex-col items-center content-center pt-[60px] md:pt-[0px] grid-cols-1 gap-[3vw]  lg:gap-[3.5vw] '>
+
+                    <div className='w-[90vw] lg:w-[50vw] h-auto lg:h-auto rounded-lg object-contain shadow-2xl bg-black bg-opacity-70 py-[8px] px-[8px]'>
+                      <div className='pl-[10px] md:pl-[20px] pt-[20px]'>
+                      <h3 className='text-xl lg:text-3xl'>
+                        Work Experience:
+                      </h3>
+                      <div className='py-[15px] px-[15px]'>
+                        <h4 className='text-lg lg:text-2xl'>
+                          2021 Dec - Present
+                        </h4>
+                        <p className='pl-[12px] text-lg lg:text-2xl font-bold'>
+                          Independent Web Designer/ Fullstack Developer
+
+
+                        </p>
+                        <p className='pl-[12px] text-md lg:text-xl pt-[5px]'>Design & Fullstack Develop Web App with React, Node</p>
+                      </div>
+
+                      <div className='py-[15px] px-[15px]'>
+                        <h4 className='text-lg lg:text-2xl'>
+                           2013 Jan - 2021 Oct
+                        </h4>
+                        <p className='pl-[12px] text-lg lg:text-2xl font-bold'>
+                          Co-founder & Chief Designer <br/> Eone Timepieces, Inc
+
+
+                        </p>
+                        <p className='pl-[12px] text-md lg:text-xl pt-[5px]'>
+                          Successful Kickstarter Campaign raised over 400k;
+                          <br/>
+                          Develop Eone’s products from design, web design, sourcing to production management;
+                          <br/>
+                          Establish and design Eone’s brand Identity and UI on social media, website and other marketing materials & channels;
+                          <br/>
+                          Social Media & Digital Ad management
+                          <br/>
+                          Achieved ARR ~3million in 2018 as a D2C brand
+                        </p>
+                        <a className='pl-[12px] text-md lg:text-xl text-blue-400 ' target="_blank" href="https://eone-time.com">eone-time.com</a>
+
+                      </div>
+                      </div>
+                      <div className='pl-[10px] md:pl-[20px] pt-[20px]'>
+                      <h3 className='text-xl lg:text-3xl'>
+                        Education:
+                      </h3>
+                      <div className='py-[15px] px-[15px]'>
+                        <h4 className='text-lg lg:text-2xl'>
+                          2010 Sept - 2014 May
+                        </h4>
+                        <p className='pl-[12px] text-lg lg:text-2xl font-bold'>
+                          Master in Architecture (MArch I)
+                        </p>
+                        <p className='pl-[12px] text-md lg:text-xl pt-[5px]'>
+                          Harvard University, Graduate School of Design
+                        </p>
+                      </div>
+
+                      <div className='py-[15px] px-[15px]'>
+                        <h4 className='text-lg lg:text-2xl'>
+                          2006 Sept - 2009 May
+                        </h4>
+                        <p className='pl-[12px] text-lg lg:text-2xl font-bold'>
+                          Bachelor of Arts in Architectural Studies
+                        </p>
+                        <p className='pl-[12px] text-md lg:text-xl pt-[5px]'>
+                          The University of Hong Kong
+                        </p>
+                      </div>
+
+
+                      </div>
+
+                    </div>
+
+
+
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+              </motion.div>
             </div>
-          </div>
 
-        </div>
 
-      </div>
-
-    </motion.div>
 
 
 
